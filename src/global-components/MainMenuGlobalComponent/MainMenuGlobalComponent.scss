@@ -1,0 +1,663 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+:root {
+  --main-bg-color: #f5f5f5;
+  --sidebar-bg-color: #ffffff;
+  --headers-font-color: #000000;
+  --namesetc-font-color: #ffffff;
+  --cards-headers-font-color: #ffffff;
+  --cards-description-font-color: #9c9c9c;
+  --border-and-shadows-color: #e3e3e3;
+  --special-elements-color: #3179cc;
+  --special-elements-color-darker: #0159bf;
+  --special-elements-color-pressed: #94bae7;
+  --mobile-buttons-color: #ff4500;
+  --mobile-buttons-color-pressed: #ff6f3b;
+}
+html,
+body{
+  min-width: min-content;
+}
+#root {
+  min-width: min-content;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+//Top Navigation wrapping div style
+.nav-wrapper {
+  width: 100%;
+  position: sticky;
+  background-color: var(--sidebar-bg-color);
+  height: 77px;
+  border-bottom: var(--border-and-shadows-color) 1px solid;
+  -ms-flex-align: center;
+  align-items: center;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  //Inner navigation container
+  .nav-container {
+    align-items: center;
+    display: flex;
+    box-sizing: border-box;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-positive: 1;
+    box-sizing: border-box;
+    flex-grow: 1;
+    padding-inline: 50px;
+    padding-block: 16px;
+    height: 100%;
+    //Inner left side div container style
+    .left-cont {
+      -ms-flex-align: center;
+      align-items: center;
+      display: flex;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      //Inner logo container style
+      .logo-cont {
+        align-items: center;
+        display: flex;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-positive: 0;
+        position: relative;
+        display: flex;
+        flex-grow: 0.28;
+        align-items: center;
+        min-width: 323px;
+        //Line preventing display of the hamburger menu in desktop resolution
+        svg {
+          display: none;
+        }
+        a {
+          text-decoration: none;
+          //Logo typograhpy "Reddit"
+          .logo-typo {
+            font-family: "Roboto", sans-serif;
+            font-weight: 500;
+            font-size: 28px;
+            margin: 0;
+            padding: 0;
+            font-style: normal;
+            padding-block: 8px;
+            line-height: 33px;
+            color: var(--headers-font-color);
+          }
+        }
+      }
+      //Search-bar wrapping container and input styling
+      .search-cont {
+        position: relative;
+        display: flex;
+        ms-flex-positive: 1;
+        flex-grow: 1;
+        margin-inline-end: 50px;
+        padding-block: 16px;
+        width: 661px;
+        max-width: 691px;
+        justify-content: center;
+        padding-block: 12px;
+        input {
+          width: 100%;
+          border-radius: 50px;
+          height: 44px;
+          background-color: var(--main-bg-color);
+          padding-inline: 24px;
+          border: 0;
+          outline: 0;
+          margin: 0;
+          &:hover,
+          &:focus {
+            outline: solid 1px var(--special-elements-color);
+          }
+        }
+      }
+    }
+    //Inner left side div container style
+    .right-cont {
+      -ms-flex-align: center;
+      align-items: center;
+      display: flex;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -ms-flex-positive: 0;
+      flex-grow: 0;
+      min-width: 306px;
+      //Inner login and register buttons styling
+      .buttons-cont {
+        display: flex;
+        flex-direction: row;
+        padding: 0px;
+        gap: 14px;
+        width: max-content;
+        height: 44px;
+        position: relative;
+        padding-inline: 0px;
+        margin: 0;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        flex-grow: 0;
+        #login {
+          background-color: transparent;
+          height: 44px;
+          border: 1px solid var(--special-elements-color);
+          padding: 14px 50px;
+          border-radius: 40px;
+          font-size: 16px;
+          color: var(--special-elements-color);
+          align-items: center;
+          text-align: center;
+          justify-content: center;
+          transition: all ease-in-out 0.3s;
+          &:hover {
+            cursor: pointer;
+            border: 1px solid var(--special-elements-color-darker);
+          }
+          &:active {
+            border: 1px solid var(--special-elements-color-pressed);
+            color: var(--special-elements-color-pressed);
+          }
+          &:disabled {
+            border: 1px solid var(--border-and-shadows-color);
+            color: var(--border-and-shadows-color);
+          }
+        }
+        #register {
+          height: 44px;
+          background-color: var(--special-elements-color);
+          border-radius: 50px;
+          border: none;
+          font-size: 16px;
+          padding: 14px 50px;
+          align-items: center;
+          text-align: center;
+          justify-content: center;
+          color: var(--namesetc-font-color);
+          transition: all ease-in-out 0.3s;
+          &:hover {
+            cursor: pointer;
+            background-color: var(--special-elements-color-darker);
+          }
+          &:active {
+            background-color: var(--special-elements-color-pressed);
+          }
+          &:disabled {
+            background-color: var(--border-and-shadows-color);
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+//mobile wrapper of navigation style is the same as the desktop left one but for mobile have some changes
+.mobile-navigation-wrapper {
+  display: none;//the display is for none beacause on mobile devices it's flex
+  .logo-cont {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: min-content;
+    min-width: 0;
+    padding:12px 16px;
+    gap: 12px;
+    svg {
+      display: block;
+      font-size: 30px;
+      margin: 0;
+      color: var(--headers-font-color);
+    }
+    a {
+      text-decoration: none;
+      .logo-typo {
+        font-size: 18px;
+        font-weight: bold;
+        color: var(--headers-font-color);
+      }
+    }
+  }
+}
+//class to style properly the mobile wrapper the display is for none beacause on mobile devices it's flex
+.active-mobile {
+  display: none;
+  position: fixed;
+  align-items: stretch;
+  flex-direction: column;
+  background-color: var(--sidebar-bg-color);
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  .mobile-menu-container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    gap: 50px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+     //main menu sections "Feed"
+    .feed-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: 50px;
+      height: 50px;
+      h6 {
+        padding-block-end: 16px;
+        text-transform: uppercase;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        margin: 0;
+        padding-inline: 50px;
+        color: var(--dropdowns-color);
+      }
+      //styling of the button in menu feed section
+      .btn {
+        height: 30px;
+        button {
+          text-decoration: none;
+          font-family: "Roboto";
+          height: 30px;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 16px;
+          color: var(--headers-font-color);
+          display: flex;
+          align-items: center;
+          margin: 0;
+          padding: 0px 50px;
+          flex-direction: row;
+          border: none;
+          background: none;
+          height: 42px;
+          width: 100%;
+          text-align: left;
+          outline: none;
+          justify-content: space-between;
+          &:hover {
+            cursor: pointer;
+            background-color: var(--main-bg-color);
+          }
+        }
+       
+        .left-info {
+          display: flex;
+          flex-direction: row;
+          gap: 12px;
+          align-items: center;
+          padding: 0;
+          margin: 0;
+          svg {
+            font-size: 22px;
+            align-items: center;
+            display: flex;
+            padding-bottom: 2.5px;
+            margin: 0;
+          }
+        }
+        svg {
+          display: flex;
+          position: relative;
+          flex-direction: row;
+          margin: 0;
+          padding: 0;
+          color: var(--headers-font-color);
+          font-size: 16px;
+        }
+      }
+    }
+    //main menu sections "Topics"
+    .menu-content {
+      height: max-content;
+      h6 {
+        text-transform: uppercase;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        padding: 0px;
+        padding-block-end: 16px;
+        margin: 0;
+        padding-inline: 50px;
+        color: var(--dropdowns-color);
+      }
+      .dropdown-btn {
+        button {
+          text-decoration: none;
+          font-family: "Roboto";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 16px;
+          color: var(--headers-font-color);
+          display: flex;
+          align-items: center;
+          margin: 0;
+          padding: 0px 50px;
+          flex-direction: row;
+          border: none;
+          background: none;
+          height: 42px;
+          width: 100%;
+          text-align: left;
+          outline: none;
+          justify-content: space-between;
+        }
+        :hover {
+          cursor: pointer;
+          background-color: var(--main-bg-color);
+        }
+        .left-info {
+          display: flex;
+          flex-direction: row;
+          gap: 12px;
+          align-items: center;
+          padding: 0;
+          margin: 0;
+          svg {
+            font-size: 22px;
+            align-items: center;
+            display: flex;
+            padding-bottom: 2.5px;
+            margin: 0;
+          }
+        }
+        svg {
+          display: flex;
+          position: relative;
+          flex-direction: row;
+          margin: 0;
+          padding: 0;
+          color: var(--headers-font-color);
+          font-size: 16px;
+        }
+      }
+      //dropdown button container for button before it's active 
+      .dropdown-container {
+        display: none;
+      }
+      //dropdown button container for button after it;s clicked
+      .active {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        height: max-content;
+        margin: 0;
+        a {
+          margin: 0;
+          padding: 0 85px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+          text-decoration: none;
+          font-family: "Roboto";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          height: 37px;
+          width: 100%;
+          line-height: 16px;
+          min-height: 37px;
+          color: var(--dropdowns-color);
+          &:hover {
+            background-color: #f5f5f5;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    //main menu bottom section "Settings"
+    .bottom-butons {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      margin-bottom: 50px;
+      .dropdown-btn {
+        text-decoration: none;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 16px;
+        color: var(--headers-font-color);
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 11px 50px;
+        flex-direction: row;
+        border: none;
+        background: none;
+        width: 100%;
+        text-align: left;
+        outline: none;
+        justify-content: space-between;
+        .left-info {
+          display: flex;
+          flex-direction: row;
+          gap: 12px;
+          align-items: center;
+          padding: 0;
+          margin: 0;
+          svg {
+            font-size: 22px;
+            align-items: center;
+            display: flex;
+            padding-bottom: 2.5px;
+            margin: 0;
+          }
+        }
+        svg {
+          display: flex;
+          position: relative;
+          flex-direction: row;
+          margin: 0;
+          padding: 0;
+          color: var(--headers-font-color);
+          font-size: 16px;
+        }
+        &:hover {
+          background-color: #f5f5f5;
+          cursor: pointer;
+        }
+      }
+    
+    }
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #e3e3e3;
+      border-radius: 40px;
+    }
+  }
+}
+
+
+//Other idea of styling to this resolution and lanscape (not used)
+/*
+@media (min-width: 835px) and (max-width: 1025px) {
+  .nav-wrapper {
+    width: 100%;
+    .nav-container {
+      width: 100%;
+      padding-inline: 24px;
+      .left-cont {
+        width: min-content;
+        .logo-cont {
+           display: flex;
+          flex-direction: row;
+          align-items: center;
+          width: min-content;
+          min-width: 0;
+          gap: 12px;
+          svg {
+            display: block;
+            font-size: 30px;
+            padding-block-end: 3px;
+            margin: 0;
+            color: var(--headers-font-color);
+          }
+        }
+        .search-cont {
+          display: none;
+        }
+      }
+    }
+  }
+}
+*/
+//Tablets's and bigger sizes phone devices styling of navigation
+@media (min-width: 280px) and (max-width: 1024px) {
+  .active-mobile {
+    display: flex;
+  }
+  .nav-wrapper {
+    width: 100%;
+    height: 66px;
+    border-bottom: var(--border-and-shadows-color) 2px solid;
+    .nav-container {
+      width: 100%;
+      padding-inline: 16px;
+      padding-block: 12px;
+      .left-cont {
+        width: min-content;
+        .logo-cont {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          width: min-content;
+          min-width: 0;
+          gap: 12px;
+          svg {
+            display: block;
+            font-size: 30px;
+            margin: 0;
+            color: var(--headers-font-color);
+          }
+          a {
+            text-decoration: none;
+            .logo-typo {
+              font-size: 18px;
+              font-weight: bold;
+              color: var(--headers-font-color);
+            }
+          }
+        }
+        .search-cont {
+          display: none;
+        }
+      }
+      .right-cont {
+        min-width: min-content;
+        max-width: max-content;
+        .buttons-cont {
+          gap: 12px;
+          #login {
+            border-color: var(--mobile-buttons-color);
+            background-color: transparent;
+            padding: 12px 16px;
+            color: var(--mobile-buttons-color);
+            &:hover {
+              cursor: pointer;
+              border: 1px solid var(--mobile-buttons-color);
+            }
+            &:active {
+              border: 1px solid var(--mobile-buttons-color-pressed);
+              color: var(--mobile-buttons-color-pressed);
+            }
+          }
+          #register {
+            background-color: var(--mobile-buttons-color);
+            color: #ffffff;
+            padding: 12px 16px;
+            &:hover {
+              cursor: pointer;
+              background-color: var(--mobile-buttons-color);
+            }
+            &:active {
+              cursor: pointer;
+              background-color: var(--mobile-buttons-color-pressed);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+//Really small devices nav
+@media (max-width: 375px) {
+  .active-mobile {
+    display: flex;
+  }
+  .nav-wrapper {
+    width: 100%;
+    height: 66px;
+    border-bottom: var(--border-and-shadows-color) 2px solid;
+    .nav-container {
+      width: 100%;
+      padding-inline: 16px;
+      padding-block: 12px;
+      .left-cont {
+        width: min-content;
+        .logo-cont {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          width: min-content;
+          min-width: 0;
+          gap: 12px;
+          svg {
+            display: block;
+            font-size: 30px;
+            margin: 0;
+            color: var(--headers-font-color);
+          }
+          a {
+            text-decoration: none;
+            .logo-typo {
+              font-size: 18px;
+              font-weight: bold;
+              color: var(--headers-font-color);
+            }
+          }
+        }
+        .search-cont {
+          display: none;
+        }
+      }
+      .right-cont {
+        min-width: min-content;
+        max-width: max-content;
+        .buttons-cont {
+          gap: 12px;
+          #login {
+            border-color: var(--mobile-buttons-color);
+            background-color: transparent;
+            padding: 12px 16px;
+            color: var(--mobile-buttons-color);
+          }
+          #register {
+            background-color: var(--mobile-buttons-color);
+            color: #ffffff;
+            padding: 12px 16px;
+          }
+        }
+      }
+    }
+  }
+}
